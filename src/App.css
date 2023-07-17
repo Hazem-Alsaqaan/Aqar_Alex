@@ -1,3 +1,118 @@
 .App{
     min-height: 100vh;
 }
+/* global classes which more and repeat using at project */
+.main_btn{
+    background-color: var(--main);
+    padding: 7px 20px;
+    margin: 20px 0px;
+    border-radius: 8px;
+    color: var(--light);
+    text-align: center;
+    border: none;
+    min-width: 250px;
+    font-size: 25px;
+    font-weight: 700;
+    transition-duration: .2s;
+}
+.main_btn:hover {
+    background-color: var(--second_main);
+}
+
+/* auth form */
+.auth-form {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.auth-form form {
+    display: flex;
+    flex-direction: column;
+} 
+.login .container .auth-form form {
+    margin-bottom: 20px;
+}
+.auth-form form .mobile-number{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.auth-form form .mobile-number .user-mobile-number{
+    flex: 1;
+}
+
+.auth-form form label{
+    color: var(--main);
+    font-size: 20px;
+    margin: 7px 0px;
+}
+.auth-form form input {
+    padding: 7px;
+    border: 1px solid var(--medium);
+    border-radius: 8px 8px;
+}
+.auth-form form input:focus{
+    outline: none;
+}
+.forget-password {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 7px 0px;
+}
+.new-account {
+    font-size: 15px;
+    font-weight: 700;
+}
+.new-account a {
+    color: var(--main);
+    text-decoration: none;
+}
+
+/* fire base */
+.fire-base{
+    margin-top: 25px;
+}
+.fire-base p{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+}
+.fire-base p::before{
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 3px;
+    left: 0px;
+    top: 50%;
+    background-color: var(--medium);
+}
+.fire-base p::after{
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 3px;
+    right: 0px;
+    top: 50%;
+    background-color: var(--medium);
+}
+.fire-base div {
+    display: flex;
+    justify-content: center;
+}
+.fire-base div svg {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+.main-pages-loading-spinner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
