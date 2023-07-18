@@ -14,12 +14,12 @@
 }
 .header .container nav ul li a {
     padding: 10px;
-    color: var(--white);
+    color: var(--light);
     font-size: 25px;
     font-weight: 700;
 }
 .header .container nav ul li a.active{
-    color: var(--purple);
+    color: var(--main);
 }
 .header .container .header-btn {
     display: flex;
@@ -42,8 +42,8 @@
     margin: 7px;
 }
 .header .container .header-btn .btn-primary {
-    background-color: var(--purple);
-    border-color: var(--purple);
+    background-color: var(--main);
+    border-color: var(--main);
 }
 .header .container .header-btn .notifications-btn {
     display: flex;
@@ -52,7 +52,7 @@
 }
 .header .container .header-btn .notifications-btn svg {
     font-size: 35px;
-    color: var(--white);
+    color: var(--light);
     cursor: pointer;
 }
 .header .container .header-btn .notifications-btn svg:first-child {

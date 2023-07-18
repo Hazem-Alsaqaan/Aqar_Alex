@@ -63,7 +63,7 @@ const handleLogin = async(e)=>{
         if(err.message === "Network Error"){
             toast.error("تأكد من اتصالك بالانترنت")
         }else if (err.response.data.errorMessage){
-            toast.error(err.response.data.errorMessage)
+            toast.error(err.response.data.errorMessage);
         }
     }
     setEmail("")
@@ -81,17 +81,17 @@ const handleLogin = async(e)=>{
             {
                     loginError ? 
                     <ToastContainer
-                        position="top-center"
-                        autoClose={5000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                        theme="light"
-                        /> : ""
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                    /> : ""
                 }
                 <div className="container">
                     <div className="login-content">

@@ -1,4 +1,3 @@
-import React from "react";
 import {Link} from "react-router-dom"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faAndroid, faApple, faFacebook, faTwitter} from "@fortawesome/free-brands-svg-icons"
@@ -29,7 +28,7 @@ const Footer = ()=>{
                     </section>
                     <section className="center-side">
                         <h2>تنزيل التطبيق</h2>
-                        <p>حمل تطبيق صيّف وابدأ رحلة بحثك للعثور على افضل الشقق في مصر. مجموعة لا نهائية متوفرة الأن! صيّف دليل عقاري يستحق ثقتك!</p>
+                        <p>حمل تطبيق عقار الاسكندرية وابدأ رحلة بحثك للعثور على افضل الشقق في مصر. مجموعة لا نهائية متوفرة الأن! عقار الاسكندرية دليل عقاري يستحق ثقتك!</p>
                     </section>
                     <section className="left-side">
                         <div className="top-side">

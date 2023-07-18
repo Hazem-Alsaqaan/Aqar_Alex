@@ -6,29 +6,30 @@
 html{
   scroll-behavior: smooth;
 }
-body {
-  margin: 0px;
-  padding: 0px;
-  direction: rtl;
-  font-family: 'Almarai', sans-serif;
-  min-height: 100vh;
-}
 :root{
   --main: #FF3D00;
   --second_main: #ee3b05;
   --dark: #000;
   --light: #fff;
   --medium: #F3F3F3;
+  --toastify-color-success: #FF3D00;
+  --toastify-color-warning: #f1c40f;
+  --toastify-color-error: #FF3D00;
 }
-a {
-  color: #000;
-  text-decoration: none;
+body{
+  margin: 0px;
+  font-family: 'Almarai', sans-serif;
+  direction: rtl;
 }
 ul{
   list-style: none;
   padding: 0px;
   margin: 0px;
 }
-h1, h2, h3, h4, h5, h6, p{
-  margin: 0px;
+a{
+  text-decoration: none;
+  color: #000000;
+}
+h1,h2,h3,h4,h5,h6,p {
+  margin-bottom: 0px;
 }

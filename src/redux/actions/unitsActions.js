@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit"
 import axios from "axios"
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 
 //get all units page 1 Search
 export const getAllUnits = createAsyncThunk("units/getAllUnits", async(item)=>{
