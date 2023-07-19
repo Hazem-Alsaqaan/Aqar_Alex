@@ -10,7 +10,7 @@
     color: var(--light);
     text-align: center;
     border: none;
-    min-width: 250px;
+    min-width: 200px;
     font-size: 25px;
     font-weight: 700;
     transition-duration: .2s;
@@ -48,7 +48,7 @@
 }
 .auth-form form input {
     padding: 7px;
-    border: 1px solid var(--medium);
+    border: 1px solid var(--second_medium);
     border-radius: 8px 8px;
 }
 .auth-form form input:focus{

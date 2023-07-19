@@ -131,7 +131,7 @@ const handleLogin = async(e)=>{
                                 />
                                 <Link 
                                 className="forget-password"
-                                // to="/sentCode"
+                                to="/sentCode"
                                 >نسيت كلمة المرور؟</Link>
                                 <button
                                 className="main_btn"
@@ -150,7 +150,7 @@ const handleLogin = async(e)=>{
                             <div className="new-account">
                                 <span>ليس لديك حساب؟ </span>
                                 <Link 
-                                // to="/register"
+                                to="/register"
                                 >حساب جديد</Link>
                             </div>
                             <div className="fire-base">

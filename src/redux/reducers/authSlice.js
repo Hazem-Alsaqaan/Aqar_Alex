@@ -15,7 +15,7 @@ const authSlice = createSlice({
     },
     reducers: {
         // login
-        loginPending: (state, action)=>{
+        loginPending: (state)=>{
             state.loginLoading = true
         },
         loginFulfilled: (state, action)=>{
@@ -23,26 +23,26 @@ const authSlice = createSlice({
             state.user = action.payload.user || action.payload
             state.token = action.payload.token || action.payload.accessToken
         },
-        loginRejected: (state, action)=>{
+        loginRejected: (state)=>{
             state.loginLoading = false
             state.loginError = true
         },
         //logout
-        logOut: (state, action)=>{
+        logOut: (state)=>{
             window.sessionStorage.removeItem("user")
             window.sessionStorage.removeItem("token")
             state.user = null
             state.token = null
         },
         //register
-        registerPending: (state, action)=>{
+        registerPending: (state)=>{
             state.registerLoading = true
         },
         registerFulfilled: (state, action)=>{
             state.registerLoading = false;
             state.userRegister = action.payload.user
         },
-        registerRejected: (state, action)=>{
+        registerRejected: (state)=>{
             state.registerLoading = false
             state.registerError = true
 
