@@ -24,8 +24,9 @@ const MostBookedApartments = ()=>{
             <section className="most-booked">
                 <div className="container">
                     <h1>أحدث الشقق للبيع</h1>
-                    { mostBookingsLoading ? <RotatingLines
-                            strokeColor="#5500A1"
+                    { mostBookingsLoading ? 
+                            <RotatingLines
+                            strokeColor="#FF3D00"
                             strokeWidth="5"
                             animationDuration="0.75"
                             width="96"
