@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setChildInSearch, setCityInSearch, setMaxRang, setMinRang, setPersonsInSearch, setRoomsInSearch } from "../../redux/reducers/searchDataSlice";
 import RoomNumbers from "../room_numbers/RoomNumbers";
 
+// eslint-disable-next-line react-refresh/only-export-components
 const SearchData = ({pageNumber, setPageNumber})=>{
 
     const {cityInSearch} = useSelector((state)=>state.searchDataSlice)
@@ -65,4 +66,5 @@ const SearchData = ({pageNumber, setPageNumber})=>{
         </>
     )
 }
+// eslint-disable-next-line react-refresh/only-export-components
 export default memo(SearchData)

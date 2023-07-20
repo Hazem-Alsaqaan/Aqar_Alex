@@ -2,6 +2,8 @@
     flex: 1;
     border: none;
     padding: 7px;
+    background-color: var(--bg);
+    color: var(--text);
 }
 .search-form:focus{
     outline: none;

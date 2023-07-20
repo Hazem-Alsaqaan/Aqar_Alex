@@ -5,7 +5,7 @@
     position: relative;
 }
 .select-price .selection {
-    background-color: var(--light);
+    background-color: var(--bg);
     padding: 10px 7px;
     border-radius: 8px 8px;
     min-width: 150px;
@@ -25,7 +25,7 @@
 /* selection list */
 .select-price .select-rang {
     position: absolute;
-    background-color: var(--light);
+    background-color: var(--bg);
     border-radius: 5px 5px;
     padding: 10px;
     display: flex;

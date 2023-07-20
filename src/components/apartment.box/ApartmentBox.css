@@ -1,6 +1,7 @@
 
 .single-box {
-    background-color: var(--light);
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -60,7 +61,7 @@
 .single-box p.rate{
     font-weight: 700;
     font-size: 22px;
-    color: rgba(0, 0, 0, 0.77);
+    color: var(--text); 
 }
 .single-box p.rate span{
     margin-left: 20px;
@@ -84,7 +85,6 @@
     justify-content: center;
     font-weight: 700;
     background-color: var(--main);
-    border: 1px solid var(--main);
 }
 
 /* start media screen */
@@ -98,7 +98,6 @@
         justify-content: center;
         font-weight: 700;
         background-color: var(--main);
-        border: 1px solid var(--main);
     }
 }
 @media(max-width: 410px){

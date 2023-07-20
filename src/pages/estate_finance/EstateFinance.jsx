@@ -1,6 +1,6 @@
 
 
-const MortgageFinancing = ()=>{
+const EstateFinance = ()=>{
     return(
         <>
             <h1>تمويل عقاري</h1>
@@ -8,4 +8,4 @@ const MortgageFinancing = ()=>{
     )
 }
 
-export default MortgageFinancing
+export default EstateFinance

@@ -1,5 +1,6 @@
 .login{
-    background-color: var(--light);
+    background-color: var(--bg);
+    color: var(--text);
 }
 .login .container{
     width: 100%;

@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import "./HomePage.css"
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
-const HomePage = () => {
+// eslint-disable-next-line react-refresh/only-export-components
+const HomePage = ({setMood}) => {
     const navigate = useNavigate()
     const [route, setRoute] = useState("")
     const [selectSell, setSelectSell] = useState(false)
@@ -40,6 +41,17 @@ const HomePage = () => {
         </Helmet>
             <section className="home_page">
                 <div className="container">
+                <div>
+                    <button 
+                    className="btn btn-dark"
+                    onClick={()=>setMood("dark")}
+                    >dark
+                    </button>
+                    <button 
+                    className="btn btn-light"
+                    onClick={()=>setMood("light")}
+                    >light</button>
+                </div>
                     <div className="choosing_boxes">
                         <div className={selectSell ? "box selected" : "box"} name="selling" onClick={(e)=>handleChooseSell(e)}>
                             <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1689416522/AqarAlex/cartoon-sweet-home-sale-cute-new-design-126961117-removebg-preview_1_tb9maw.jpg" alt=""/>
@@ -49,15 +61,17 @@ const HomePage = () => {
                             <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1689416606/AqarAlex/istockphoto-925138596-612x612-removebg-preview_1_ggwrlc.jpg" alt=""/>
                             <h3>شراء</h3>
                         </div>
-                        <div className={selectFinance ? "box selected" : "box"} name="mortgage_financing" onClick={(e)=>handleChooseFinance(e)}>
+                        <div className={selectFinance ? "box selected" : "box"} name="estate_finance" onClick={(e)=>handleChooseFinance(e)}>
                             <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1689416634/AqarAlex/mortgage-concept-house-loan-money-investment-to-real-estate-man-buying-home-shaking-hands-agent-modern-illustration-190696067-removebg-preview_1_ufzfvz.jpg" alt=""/>
                             <h3>تمويل عقاري</h3>
                         </div>
                     </div>
                     <button onClick={handleSubmit} className="main_btn">تم</button>
                 </div>
+                
             </section>
         </>
     );
 };
-export default HomePage;
+// eslint-disable-next-line react-refresh/only-export-components
+export default memo(HomePage);

@@ -1,5 +1,6 @@
 .register{
-    background-color: var(--light);
+    background-color: var(--bg);
+    color: var(--text);
 }
 .register .container{
     width: 100%;

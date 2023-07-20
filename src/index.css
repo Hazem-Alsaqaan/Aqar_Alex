@@ -7,6 +7,8 @@ html{
   scroll-behavior: smooth;
 }
 :root{
+  --bg: #fff;
+  --text: #000;
   --main: #FF3D00;
   --second_main: #ee3b05;
   --dark: #000;
@@ -16,6 +18,10 @@ html{
   --toastify-color-success: #FF3D00;
   --toastify-color-warning: #f1c40f;
   --toastify-color-error: #FF3D00;
+}
+.dark_mood{
+  --bg: #333;
+  --text: #fff;
 }
 body{
   margin: 0px;
