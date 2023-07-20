@@ -12,6 +12,7 @@ import SentCode from "./pages/sent.code/SentCode";
 import RestPassword from "./pages/rest.password/RestPassword";
 import ConfirmCodeToRestPass from "./pages/confirm.code.rest.pass/ConfirmCodeToRestPass";
 import EstateFinance from "./pages/estate_finance/EstateFinance";
+import SearchResult from "./components/search.result/SearchResult";
 
 function App() {
   const [mood, setMood] = useState("light")
@@ -37,6 +38,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/selling" element={<Selling pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>}>
           <Route index element={<HomeContent/>}/>
+          <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>}/>
           <Route path="/selling" element={<HomeContent/>}/>
         </Route>
         <Route path="/buying" element={<Buying/>}/>

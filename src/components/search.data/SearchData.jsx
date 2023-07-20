@@ -24,7 +24,7 @@ const SearchData = ({pageNumber, setPageNumber})=>{
 
     const handleSearch = (e)=>{
         e.preventDefault()
-        navigate("/search")
+        navigate("/selling/search")
         dispatch(getAllUnits({
             token: token,
             city: cityInSearch,

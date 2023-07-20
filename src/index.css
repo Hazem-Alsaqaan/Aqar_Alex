@@ -8,6 +8,7 @@ html{
 }
 :root{
   --bg: #fff;
+  --second_bg: #F3F3F3;
   --text: #000;
   --main: #FF3D00;
   --second_main: #ee3b05;
@@ -22,6 +23,7 @@ html{
 .dark_mood{
   --bg: #333;
   --text: #fff;
+  --second_bg: #000;
 }
 body{
   margin: 0px;
