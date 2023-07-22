@@ -9,7 +9,7 @@ import SearchData from "../../components/search.data/SearchData";
 
 
 // eslint-disable-next-line react-refresh/only-export-components
-const Selling =({pageNumber, setPageNumber})=>{
+const Selling =({pageNumber, setPageNumber, pageRoute})=>{
     return(
         <>
         <Helmet>
@@ -33,7 +33,7 @@ const Selling =({pageNumber, setPageNumber})=>{
                 <section className="home-page-landing">
                     <Header/>
                     <div className="container landing-content">
-                        <SearchData pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>
+                        <SearchData pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = {pageRoute}/>
                     </div>
                 </section>
                 <Outlet/>

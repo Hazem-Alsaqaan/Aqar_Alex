@@ -9,7 +9,7 @@ import { setChildInSearch, setCityInSearch, setMaxRang, setMinRang, setPersonsIn
 import RoomNumbers from "../room_numbers/RoomNumbers";
 
 // eslint-disable-next-line react-refresh/only-export-components
-const SearchData = ({pageNumber, setPageNumber})=>{
+const SearchData = ({pageNumber, setPageNumber, pageRoute})=>{
 
     const {cityInSearch} = useSelector((state)=>state.searchDataSlice)
     const {personsInSearch} = useSelector((state)=>state.searchDataSlice)
@@ -24,7 +24,7 @@ const SearchData = ({pageNumber, setPageNumber})=>{
 
     const handleSearch = (e)=>{
         e.preventDefault()
-        navigate("/selling/search")
+        navigate(`/${pageRoute}/search`)
         dispatch(getAllUnits({
             token: token,
             city: cityInSearch,

@@ -57,9 +57,9 @@ const HomePage = ({setMood}) => {
                             <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1689416522/AqarAlex/cartoon-sweet-home-sale-cute-new-design-126961117-removebg-preview_1_tb9maw.jpg" alt=""/>
                             <h3>بيع</h3>
                         </div>
-                        <div className={selectBuy ? "box selected" : "box"} name="buying" onClick={(e)=>handleChooseBuy(e)}>
+                        <div className={selectBuy ? "box selected" : "box"} name="rent" onClick={(e)=>handleChooseBuy(e)}>
                             <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1689416606/AqarAlex/istockphoto-925138596-612x612-removebg-preview_1_ggwrlc.jpg" alt=""/>
-                            <h3>شراء</h3>
+                            <h3>إيجار</h3>
                         </div>
                         <div className={selectFinance ? "box selected" : "box"} name="estate_finance" onClick={(e)=>handleChooseFinance(e)}>
                             <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1689416634/AqarAlex/mortgage-concept-house-loan-money-investment-to-real-estate-man-buying-home-shaking-hands-agent-modern-illustration-190696067-removebg-preview_1_ufzfvz.jpg" alt=""/>

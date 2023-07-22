@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
 import "./App.css";
-import Selling from "./pages/selling/Selling";
-import Buying from "./pages/buying/Buying";
 import Login from "./pages/login/Login";
 import { useState } from "react";
 import HomeContent from "./components/home.content/HomeContent";
@@ -11,8 +9,10 @@ import VerifyCode from "./pages/verify.code/VerifyCode";
 import SentCode from "./pages/sent.code/SentCode";
 import RestPassword from "./pages/rest.password/RestPassword";
 import ConfirmCodeToRestPass from "./pages/confirm.code.rest.pass/ConfirmCodeToRestPass";
-import EstateFinance from "./pages/estate_finance/EstateFinance";
 import SearchResult from "./components/search.result/SearchResult";
+import Selling from "./pages/selling/Selling";
+import EstateFinance from "./pages/estate_finance/EstateFinance";
+import Rent from "./pages/buying/Rent";
 
 function App() {
   const [mood, setMood] = useState("light")
@@ -36,13 +36,24 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage setMood = {setMood}/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/selling" element={<Selling pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>}>
+        {/* بيـــــــــــــــــــــــــــــــــــــع */}
+        <Route path="/selling" element={<Selling pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "selling"/>}>
           <Route index element={<HomeContent/>}/>
-          <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>}/>
+          <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber} />}/>
           <Route path="/selling" element={<HomeContent/>}/>
         </Route>
-        <Route path="/buying" element={<Buying/>}/>
-        <Route path="/estate_finance" element={<EstateFinance/>}/>
+        {/* إيجــــــــــــــــــــــــــــــــــــار */}
+        <Route path="/rent" element={<Rent pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "rent"/>}>
+          <Route index element={<HomeContent/>}/>
+            <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>} />
+            <Route path="/rent" element={<HomeContent/>}/>
+        </Route>
+        {/* تمويــــــــــــــــــل عقــــــــــــــــأري */}
+        <Route path="/estate_finance" element={<EstateFinance pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "estate_finance"/>}>
+          <Route index element={<HomeContent/>}/>
+          <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>} />
+          <Route path="/estate_finance" element={<HomeContent/>}/>
+        </Route>
         <Route path="/register" element={<Register getEmailFromRegister ={getEmailFromRegister}/>}/>
         <Route path="/verifyCode" element={<VerifyCode registerMail ={registerMail}/>}/>
         <Route path="/sentCode" element={<SentCode getMailFromSentCode = {getMailFromSentCode}/>}/>

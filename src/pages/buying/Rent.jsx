@@ -7,11 +7,11 @@ import Header from "../../components/header/Header";
 import SearchData from "../../components/search.data/SearchData";
 
 // eslint-disable-next-line react-refresh/only-export-components
-const EstateFinance = ({pageNumber, setPageNumber, pageRoute})=>{
+const Rent = ({pageNumber, setPageNumber, pageRoute})=>{
     return(
         <>
         <Helmet>
-            <title>الصفحة الرئيسية | بيع</title>
+            <title>الصفحة الرئيسية | إيجار</title>
             <meta name="keywords" content="عقار الاسكندرية للعقارات aqar alex - بيع وشراء العقارات شقق فلل شاليهات في مصر"/>
             <meta name="description" content="عقار الاسكندرية aqar alex منصة تداول العقارات في مصر، بيع وشراء العقارات، شقق، فلل، محلات، شاليهات، مكاتب، اراضي، بيوت ومنازل."/>
         </Helmet>
@@ -42,4 +42,4 @@ const EstateFinance = ({pageNumber, setPageNumber, pageRoute})=>{
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export default memo(EstateFinance)
+export default memo(Rent)
