@@ -5,6 +5,7 @@
     background-image: url("https://res.cloudinary.com/dkhu7rt8n/image/upload/v1681155504/sayf/landing_xlcptf.png");
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 80px;
 }
 .home .home-page-landing .landing-content{
     height: calc(100vh - 113px);

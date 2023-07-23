@@ -96,11 +96,16 @@ const endDateYear = endDate.getFullYear()
                     >الحجوزات</Link>
                     : location.pathname === `/myUnits/${item?._id}` ?
                     ""
+                    : location.pathname === `/estate_finance` ?
+                    <Link 
+                    className="main_btn"
+                    to={`/showUnit/${item?._id}`}
+                    >طلب تمويل عقاري</Link>
                     :
                     <Link 
                     className="main_btn"
                     to={`/showUnit/${item?._id}`}
-                    >احجز الأن</Link>
+                    >حجز معاينة</Link>
                 }
                 </div>
                 <ToastContainer

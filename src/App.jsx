@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
 import "./App.css";
@@ -13,8 +14,23 @@ import SearchResult from "./components/search.result/SearchResult";
 import Selling from "./pages/selling/Selling";
 import EstateFinance from "./pages/estate_finance/EstateFinance";
 import Rent from "./pages/buying/Rent";
+import { RotatingLines } from "react-loader-spinner";
+import RequireAuth from "./components/require.auth/RequireAuth";
+const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
 
 function App() {
+  // spinner loader pages to add fallback
+  const mainPagesLoader = <div className="main-pages-loading-spinner">
+                            <RotatingLines
+                              strokeColor="#FF3D00"
+                              strokeWidth="5"
+                              animationDuration="0.75"
+                              width="100"
+                              visible={true}
+                              />
+                          </div>
+  // ################################################################### //
+
   const [mood, setMood] = useState("light")
 
   const [email, setEmail] = useState("")
@@ -59,6 +75,7 @@ function App() {
         <Route path="/sentCode" element={<SentCode getMailFromSentCode = {getMailFromSentCode}/>}/>
         <Route path="/confirmCode" element={<ConfirmCodeToRestPass email = {email} getCodeFromConfirmCode = {getCodeFromConfirmCode}/>}/>
         <Route path="/restPassword" element={<RestPassword email = {email} code = {code}/>}/>
+        <Route path="/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
       </Routes>
     </div>
   );
