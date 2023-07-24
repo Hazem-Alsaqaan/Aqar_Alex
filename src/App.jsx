@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
-import "./App.css";
 import Login from "./pages/login/Login";
 import { useState } from "react";
 import HomeContent from "./components/home.content/HomeContent";
@@ -13,10 +12,12 @@ import ConfirmCodeToRestPass from "./pages/confirm.code.rest.pass/ConfirmCodeToR
 import SearchResult from "./components/search.result/SearchResult";
 import Selling from "./pages/selling/Selling";
 import EstateFinance from "./pages/estate_finance/EstateFinance";
-import Rent from "./pages/buying/Rent";
+import Rent from "./pages/rent/Rent";
 import { RotatingLines } from "react-loader-spinner";
 import RequireAuth from "./components/require.auth/RequireAuth";
 const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
+import "./App.css";
+import CustomToastify from "./components/custom_toastify/CustomToastify";
 
 function App() {
   // spinner loader pages to add fallback
@@ -49,6 +50,7 @@ function App() {
   }
   return (
     <div className={mood === "dark" ? "App dark_mood" : "App"}>
+      <CustomToastify/>
       <Routes>
         <Route path="/" element={<HomePage setMood = {setMood}/>}/>
         <Route path="/login" element={<Login/>}/>

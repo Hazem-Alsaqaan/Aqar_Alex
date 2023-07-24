@@ -1,12 +1,31 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import "./SpecificationsConditions.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { Link, useParams } from "react-router-dom";
+import { faLocationDot, faPeopleRoof, faWarehouse } from "@fortawesome/free-solid-svg-icons";
+import DatePicker from "react-datepicker";
+import { useDispatch } from "react-redux";
+import { setToggleToast } from "../../redux/reducers/toggleSlice";
+// import { Link, useParams } from "react-router-dom";
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 const SpecificationsConditions = ({oneUnit})=>{
-    const {unitId} = useParams()
+    // const {unitId} = useParams()
+    // const [showDateList, setShowDateList] = useState(false)
+    const dispatch = useDispatch()
+    const [dateSelected, setDateSelected] = useState(null)
+    const [calendarVisible, setCalendarVisible] = useState(false)
+
+    const handleSelectedDate = (date)=>{
+        setDateSelected(date)
+    }
+    const submitCalendar = ()=>{
+        if(dateSelected){
+            setCalendarVisible(false)
+            console.log(dateSelected)
+            dispatch(setToggleToast(true))
+        }
+    }
     return(
         <>
         <div className="static-specifications">
@@ -14,8 +33,33 @@ const SpecificationsConditions = ({oneUnit})=>{
                 <h1>{`شقة مساحتها ${oneUnit.apartment_area} متر`}</h1>
                 <p>{`${oneUnit.price}`}</p>
             </div>
-            <Link to= {`/showUnit/${unitId}/payment`} className="btn">حجز طلب معاينه</Link>
+
+            <div className="calender_container">
+
+                <button onClick={()=>setCalendarVisible(!calendarVisible)} className="main_btn">حجز طلب معاينه</button>
+                {calendarVisible ? 
+                <DatePicker 
+                inline
+                selected={dateSelected} 
+                onChange={(date)=> handleSelectedDate(date)}
+                shouldCloseOnSelect={false}
+                calendarClassName="custom_date_piker"
+                dayClassName={(date) =>
+                    date.getDate() ? "custom_day" : undefined
+                }
+                >
+                    <button 
+                    className="main_btn"
+                    onClick={()=>submitCalendar()}
+                    >حجز</button>
+                </DatePicker>
+                :""}
+            </div>
+
+
+
         </div>
+
         <div className="specifications-conditions">
             <section className="specifications">
                 <h2 className="title">المواصفات</h2>
@@ -25,11 +69,11 @@ const SpecificationsConditions = ({oneUnit})=>{
                         <span>{`${oneUnit.city} - مصر`}</span>
                     </div>
                     <div>
-                        <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1682941496/sayf/809090_architecture_family_home_house_residential_icon_1_ahokpe.svg" alt=""/>
+                        <FontAwesomeIcon icon={faWarehouse}/>
                         <span>{`مساحة الشقة ${oneUnit.apartment_area}`}</span>
                     </div>
                     <div>
-                        <img src="https://res.cloudinary.com/dkhu7rt8n/image/upload/v1682941534/sayf/6714576_family_home_house_insurance_investment_icon_1_fe6wn5.svg" alt=""/>
+                        <FontAwesomeIcon icon={faPeopleRoof}/>
                         <span>مناسب للعائلات والعزاب</span>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import {HelmetProvider } from 'react-helmet-async';
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import "react-datepicker/dist/react-datepicker.css";
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
