@@ -45,9 +45,9 @@ const SingleSearchBox = ({item}) => {
                         {`${item?.city} - مصر`}
                     </p>
                     {
-                    location.pathname === `/estate_finance/search` ? <Link className="main_btn" to={`/showUnit/${item?._id}`}>طلب تمويل عقاري</Link>
-                    :location.pathname === `/rent/search` ? <Link className="main_btn" to={`/showUnit/${item?._id}`}>حجز</Link>
-                    :<Link className="main_btn" to={`/showUnit/${item?._id}`}>حجز معاينة</Link>
+                    location.pathname === `/estate_finance/search` ? <Link className="main_btn" to={`/estate_finance/showUnit/${item?._id}`}>طلب تمويل عقاري</Link>
+                    :location.pathname === `/rent/search` ? <Link className="main_btn" to={`/rent/showUnit/${item?._id}`}>حجز</Link>
+                    :<Link className="main_btn" to={`/selling/showUnit/${item?._id}`}>حجز معاينة</Link>
                     }
                 </div>
             </div>

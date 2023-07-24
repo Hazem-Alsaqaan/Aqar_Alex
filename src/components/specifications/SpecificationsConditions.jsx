@@ -5,6 +5,7 @@ import { faLocationDot, faPeopleRoof, faWarehouse } from "@fortawesome/free-soli
 import DatePicker from "react-datepicker";
 import { useDispatch } from "react-redux";
 import { setToggleToast } from "../../redux/reducers/toggleSlice";
+import { useLocation } from "react-router-dom";
 // import { Link, useParams } from "react-router-dom";
 
 
@@ -12,6 +13,7 @@ import { setToggleToast } from "../../redux/reducers/toggleSlice";
 const SpecificationsConditions = ({oneUnit})=>{
     // const {unitId} = useParams()
     // const [showDateList, setShowDateList] = useState(false)
+    const location  = useLocation()
     const dispatch = useDispatch()
     const [dateSelected, setDateSelected] = useState(null)
     const [calendarVisible, setCalendarVisible] = useState(false)
@@ -33,9 +35,8 @@ const SpecificationsConditions = ({oneUnit})=>{
                 <h1>{`شقة مساحتها ${oneUnit.apartment_area} متر`}</h1>
                 <p>{`${oneUnit.price}`}</p>
             </div>
-
+            {location.pathname === `/selling/showUnit/${oneUnit._id}` ? 
             <div className="calender_container">
-
                 <button onClick={()=>setCalendarVisible(!calendarVisible)} className="main_btn">حجز طلب معاينه</button>
                 {calendarVisible ? 
                 <DatePicker 
@@ -55,9 +56,11 @@ const SpecificationsConditions = ({oneUnit})=>{
                 </DatePicker>
                 :""}
             </div>
-
-
-
+            : location.pathname === `/rent/showUnit/${oneUnit._id}` ? 
+            <button className="main_btn">احجز الأن</button>
+            : location.pathname === `/estate_finance/showUnit/${oneUnit._id}` ? 
+            <button className="main_btn">حاسبه الأقساط</button>
+            :""}
         </div>
 
         <div className="specifications-conditions">
