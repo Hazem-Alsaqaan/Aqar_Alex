@@ -1,7 +1,7 @@
 import {memo, useState} from "react";
 import {Link, useLocation, useParams} from "react-router-dom"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faLocationDot, faStar} from "@fortawesome/free-solid-svg-icons"
+import {faLocationDot} from "@fortawesome/free-solid-svg-icons"
 import {faHeart} from "@fortawesome/free-solid-svg-icons"
 import "./ApartmentBox.css"
 import { addTMyFavourites, removeFromBookings, removeFromFavourites } from "../../redux/actions/unitsActions";
@@ -37,12 +37,12 @@ const ApartmentBox = ({item, renderMyBookings, setRenderMyBookings, starting, en
 
 
     // add and remove from my bookings
-    const handleRemoveFromMyBookings= (id)=>{
-        dispatch(removeFromBookings({id: id, token: token}))
-        if(location.pathname === "/myBookings"){
-            setRenderMyBookings(!renderMyBookings)
-        }
-    }
+    // const handleRemoveFromMyBookings= (id)=>{
+    //     dispatch(removeFromBookings({id: id, token: token}))
+    //     if(location.pathname === "/myBookings"){
+    //         setRenderMyBookings(!renderMyBookings)
+    //     }
+    // }
     
 
 
@@ -70,26 +70,31 @@ const endDateYear = endDate.getFullYear()
                     <div className="apartmentBox-image-box">
                         <img src={item?.images && item?.images[0]} alt=""/>
                     </div>
-                    <span className="star-icon">
-                        {item.rating ? item.rating.toFixed(1) : 0}
-                        <FontAwesomeIcon icon={faStar}/>
-                    </span>
+
+
                 </div>
                 <div className="apartmentBox-text-content">
-                    <h4>{`شقة مفروش للإيجار شارع ${item?.street}`}</h4>
+                    <h4>{`شقة مساحتها  ${item?.apartment_area} متر`}</h4>
                     {location.pathname === "/myFavourite" && 
                     <p>{`شقة تحتوي على ${item?.bathrooms} حمام`}</p>}
-                    <p className="rate"><span>{`${item.price} / اليوم`}</span>({item?.raters ? item?.raters : 0} تقييم)</p>
+                    {/* <p className="rate"><span>{`${item.price} / اليوم`}</span>({item?.raters ? item?.raters : 0} تقييم)</p> */}
+                    <p className="rate"><span>{`${item.price} `}</span></p>
                     <p className="location">
                         <FontAwesomeIcon icon={faLocationDot}/>
                         {`${item?.city} - مصر`}
                     </p>
-                    {location.pathname === "/myBookings" ?
-                    <Link 
-                        className="main_btn"
-                        onClick={()=>handleRemoveFromMyBookings(bookingItem?._id)}
-                    >إلغاء الحجز</Link>
-                    : location.pathname === "/myUnits" ?
+
+
+
+
+                    {
+                    // location.pathname === "/myBookings" ?
+                    // <Link 
+                    //     className="main_btn"
+                    //     onClick={()=>handleRemoveFromMyBookings(bookingItem?._id)}
+                    // >إلغاء الحجز</Link>
+                    // : 
+                    location.pathname === "/myUnits" ?
                     <Link 
                     className="main_btn"
                     to={`/myUnits/${item?._id}`}
@@ -99,12 +104,17 @@ const endDateYear = endDate.getFullYear()
                     : location.pathname === `/estate_finance` ?
                     <Link 
                     className="main_btn"
-                    to={`/showUnit/${item?._id}`}
+                    to={`${location.pathname}/showUnit/${item?._id}`}
                     >طلب تمويل عقاري</Link>
+                    : location.pathname === `/rent` ?
+                    <Link 
+                    className="main_btn"
+                    to={`${location.pathname}/showUnit/${item?._id}`}
+                    >حجز</Link>
                     :
                     <Link 
                     className="main_btn"
-                    to={`/showUnit/${item?._id}`}
+                    to={`${location.pathname}/showUnit/${item?._id}`}
                     >حجز معاينة</Link>
                 }
                 </div>

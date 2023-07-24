@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
-import { Link } from "react-router-dom";
-import {faLocationDot, faStar} from "@fortawesome/free-solid-svg-icons"
+import { Link, useLocation } from "react-router-dom";
+import {faLocationDot} from "@fortawesome/free-solid-svg-icons"
 import {faHeart} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SingleSearchBox.css"
@@ -14,7 +14,7 @@ const SingleSearchBox = ({item}) => {
     const {token} = useSelector((state)=> state.authSlice)
     const dispatch = useDispatch()
     const [favHeart, setFavHeart] = useState(false)
-
+    let location = useLocation();
 
     const handleAddToMyFavourites= (id)=>{
         setFavHeart(true)
@@ -35,22 +35,20 @@ const SingleSearchBox = ({item}) => {
                 </div>
                 <div className="text-container">
                     <div className="text-top-side">
-                        <h4>شقة مفروش للايجار</h4>
-                        <div className="star-icon">
-                            {item?.rating ? item?.rating.toFixed(1) : 0}
-                            <FontAwesomeIcon icon={faStar} />
-                        </div>
+                        <h4>{`شقة مساحتها ${item.apartment_area} متر`}</h4>
                     </div>
                     <p>{`مكونة من ${item?.rooms} غرفة تحتوي على ${item?.beds} سرير مناسبة ل ${item?.persons + item?.children - 1} - ${item?.persons + item?.children} أفراد`}</p>
-                    <p className="rate"><span>{`${item.price} / اليوم`}</span>({item?.raters ? item?.raters : 0} تقييم)</p>
+                    {/* <p className="rate"><span>{`${item.price} / اليوم`}</span></p> */}
+                    <p className="rate"><span>{`${item.price}`}</span></p>
                     <p className="location">
                         <FontAwesomeIcon icon={faLocationDot} />
                         {`${item?.city} - مصر`}
                     </p>
-                    <Link 
-                    className="main_btn"
-                    to={`/showUnit/${item?._id}`}
-                    >احجز الأن</Link>
+                    {
+                    location.pathname === `/estate_finance/search` ? <Link className="main_btn" to={`/showUnit/${item?._id}`}>طلب تمويل عقاري</Link>
+                    :location.pathname === `/rent/search` ? <Link className="main_btn" to={`/showUnit/${item?._id}`}>حجز</Link>
+                    :<Link className="main_btn" to={`/showUnit/${item?._id}`}>حجز معاينة</Link>
+                    }
                 </div>
             </div>
         </>
