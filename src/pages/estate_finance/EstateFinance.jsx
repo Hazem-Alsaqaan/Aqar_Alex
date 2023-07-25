@@ -11,7 +11,7 @@ const EstateFinance = ({pageNumber, setPageNumber, pageRoute})=>{
     return(
         <>
         <Helmet>
-            <title>الصفحة الرئيسية | بيع</title>
+            <title>الصفحة الرئيسية | تمويل عقاري</title>
             <meta name="keywords" content="عقار الاسكندرية للعقارات aqar alex - بيع وشراء العقارات شقق فلل شاليهات في مصر"/>
             <meta name="description" content="عقار الاسكندرية aqar alex منصة تداول العقارات في مصر، بيع وشراء العقارات، شقق، فلل، محلات، شاليهات، مكاتب، اراضي، بيوت ومنازل."/>
         </Helmet>

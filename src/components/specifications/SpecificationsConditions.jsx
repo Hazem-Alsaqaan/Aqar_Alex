@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import { useDispatch } from "react-redux";
 import { setToggleToast } from "../../redux/reducers/toggleSlice";
 import { useLocation } from "react-router-dom";
+import Query from "../query/Query";
 // import { Link, useParams } from "react-router-dom";
 
 
@@ -36,6 +37,7 @@ const SpecificationsConditions = ({oneUnit})=>{
                 <p>{`${oneUnit.price}`}</p>
             </div>
             {location.pathname === `/selling/showUnit/${oneUnit._id}` ? 
+            <div>
             <div className="calender_container">
                 <button onClick={()=>setCalendarVisible(!calendarVisible)} className="main_btn">حجز طلب معاينه</button>
                 {calendarVisible ? 
@@ -54,14 +56,19 @@ const SpecificationsConditions = ({oneUnit})=>{
                     onClick={()=>submitCalendar()}
                     >حجز</button>
                 </DatePicker>
+                
                 :""}
             </div>
+            <Query/>
+            </div> 
             : location.pathname === `/rent/showUnit/${oneUnit._id}` ? 
             <button className="main_btn">احجز الأن</button>
             : location.pathname === `/estate_finance/showUnit/${oneUnit._id}` ? 
             <button className="main_btn">حاسبه الأقساط</button>
             :""}
+            
         </div>
+
 
         <div className="specifications-conditions">
             <section className="specifications">
