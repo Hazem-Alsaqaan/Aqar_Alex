@@ -4,7 +4,7 @@
     margin: 10px;
 }
 .selection-component .selection {
-    background-color: var(--bg);
+    background-color: var(--light);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +16,7 @@
     border-radius: 8px 8px;
 }
 .selection-component .selection .fa-user{
-    color: var(--text);
+    color: var(--dark);
     margin: 0px 5px;
 }
 .selection-component .selection .fa-chevron-down{
@@ -29,7 +29,8 @@
 
 /* selection list */
 .selection-component .select-person-room{
-    background-color: var(--bg);
+    background-color: var(--light);
+    color: var(--dark);
     min-width: 260px;
     overflow: hidden;
     position: absolute;

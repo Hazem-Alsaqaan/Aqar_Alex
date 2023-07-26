@@ -31,7 +31,7 @@ const Selling =({pageNumber, setPageNumber, pageRoute})=>{
                 />
             <div className="home">
                 <section className="home-page-landing">
-                    <Header/>
+                <Header/>
                     <div className="container landing-content">
                         <SearchData pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = {pageRoute}/>
                     </div>
