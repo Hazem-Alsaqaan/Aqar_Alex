@@ -12,7 +12,7 @@
     justify-content: center;
 }
 .notifications .notifications-boxes {
-    background-color: var(--white);
+    background-color: var(--bg);
     border-radius: 8px 8px;
     padding: 18px 10px;
     height: 400px;
@@ -29,6 +29,7 @@
 .notifications .notifications-boxes .box p {
     font-size: 13px;
     line-height: 18px;
+    color: var(--text);
 }
 
 .notifications .notifications-boxes .box .image img {

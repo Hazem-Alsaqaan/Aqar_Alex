@@ -102,9 +102,12 @@
 }
 /* start media screen */
 @media (max-width: 791px){
-    .header .container nav ul li a {
+    .header .container nav ul .main_header_routes_nav {
         font-size: 18px;
     }
+    .header .container nav ul span.main_header_routes_nav svg {
+        font-size: 18px;
+        } 
     .header .container .header-btn .btn {
         margin: 0px 5px;
         width: 130px;
@@ -121,8 +124,21 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-    .header .container nav ul li a {
+    .header .container nav ul .main_header_routes_nav{
         padding: 6px;
+    }
+    .header .container nav ul li ul.choose_booking_routes {
+        top: 100%;
+        right: 0%;
+        margin: 5px 0px;
+    }
+    .header .container nav ul li ul.choose_booking_routes li a{
+        font-size: 16px;
+    }
+    .header .container nav ul li ul.choose_booking_routes li a img{
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
     }
     .header .container .header-btn .btn {
         margin: 0px 5px;

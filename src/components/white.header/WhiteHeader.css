@@ -1,9 +1,8 @@
 
 .white-header {
-    /* position: absolute; */
     padding: 25px 0px;
     width: 100%;
-    background-color: var(--light);
+    background-color: var(--bg);
     box-shadow: 0px 3px 3px rgba(123, 119, 119, 0.25);
     z-index: 1001;
 }
@@ -22,7 +21,7 @@
 
 .white-header .container nav ul .main_header_routes_nav {
     padding: 10px;
-    color: var(--dark);
+    color: var(--text);
     font-size: 25px;
     font-weight: 700;
     display: flex;
@@ -105,7 +104,7 @@
 }
 .white-header .container .white-header-btn .notifications-btn svg {
     font-size: 35px;
-    color: var(--dark);
+    color: var(--text); 
     cursor: pointer;
 }
 .white-header .container .white-header-btn .notifications-btn svg:first-child {
@@ -114,9 +113,12 @@
 
 /* start media screen */
 @media (max-width: 791px){
-    .white-header .container nav ul li a {
+    .white-header  .container nav ul .main_header_routes_nav {
         font-size: 18px;
     }
+    .white-header .container nav ul span.main_header_routes_nav svg {
+        font-size: 18px;
+     } 
     .white-header .container .white-header-btn .btn {
         margin: 0px 5px;
         width: 130px;
@@ -133,8 +135,21 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-    .white-header .container nav ul li a {
+    .white-header .container nav ul .main_header_routes_nav{
         padding: 6px;
+    }
+    .white-header .container nav ul li ul.choose_booking_routes {
+        top: 100%;
+        right: 0%;
+        margin: 5px 0px;
+    }
+    .white-header .container nav ul li ul.choose_booking_routes li a{
+        font-size: 16px;
+    }
+    .white-header .container nav ul li ul.choose_booking_routes li a img{
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
     }
     .white-header .container .white-header-btn .btn {
         margin: 0px 5px;
