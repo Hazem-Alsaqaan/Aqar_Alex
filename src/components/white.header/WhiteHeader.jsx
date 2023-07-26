@@ -1,14 +1,16 @@
 import { useState } from "react";
-import "./WhiteHeader.css"
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBell} from "@fortawesome/free-regular-svg-icons"
-import { faCirclePlus, faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faCirclePlus, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import UserNotifications from "../user.notifications/UserNotifications";
 import { getNotifications } from "../../redux/actions/unitsActions";
+import HomeIcon from "../../assets/home_icon.svg"
+import "./WhiteHeader.css"
 
 const WhiteHeader = ()=>{
+    const [chooseBooking, setChooseBooking] = useState(false)
     const {user} = useSelector((state)=> state.authSlice)
     const {token} = useSelector((state)=> state.authSlice)
     const [toggleNotifications, setToggleNotifications]= useState(false)
@@ -25,13 +27,40 @@ const WhiteHeader = ()=>{
                         <ul>
                             <li>
                                 <NavLink to="/" end 
+                                className="main_header_routes_nav"
                                 >الرئيسية</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/myBookings">حجوزاتي</NavLink>
+                                <span
+                                className="main_header_routes_nav"
+                                onClick={()=>setChooseBooking(!chooseBooking)}
+                                >
+                                حجوزاتي
+                                <FontAwesomeIcon icon={faAngleDown}/>
+                                </span>
+                                {
+                                    chooseBooking ? 
+                                    <ul className="choose_booking_routes">
+                                        <li onClick={()=>setChooseBooking(false)}>
+                                            <NavLink to="/rent_bookings">
+                                            <img src={HomeIcon} alt="" />
+                                            حجوزات الإيجار
+                                            </NavLink>
+                                        </li>
+                                        <li onClick={()=>setChooseBooking(false)}>
+                                            <NavLink to="/preview_bookings">
+                                                <img src={HomeIcon} alt="" />
+                                                حجوزات طلب المعاينة
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                    :""
+                                }
                             </li>
                             <li>
-                                <NavLink to="/myFavourite">مفضلتي</NavLink>
+                                <NavLink 
+                                className="main_header_routes_nav"
+                                to="/myFavourite">مفضلتي</NavLink>
                             </li>
                         </ul>
                     </nav>

@@ -18,6 +18,9 @@ import RequireAuth from "./components/require.auth/RequireAuth";
 const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
 import "./App.css";
 import CustomToastify from "./components/custom_toastify/CustomToastify";
+// import PreviewBookings from "./pages/preview_bookings/PreviewBookings";
+const PreviewBookings = React.lazy(()=>import("./pages/preview_bookings/PreviewBookings"))
+const RentBookings = React.lazy(()=>import("./pages/rent_bookings/RentBookings"))
 
 function App() {
   // spinner loader pages to add fallback
@@ -72,15 +75,19 @@ function App() {
           <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>} />
           <Route path="/estate_finance" element={<HomeContent/>}/>
         </Route>
+        {/* Authentications */}
         <Route path="/register" element={<Register getEmailFromRegister ={getEmailFromRegister}/>}/>
         <Route path="/verifyCode" element={<VerifyCode registerMail ={registerMail}/>}/>
         <Route path="/sentCode" element={<SentCode getMailFromSentCode = {getMailFromSentCode}/>}/>
         <Route path="/confirmCode" element={<ConfirmCodeToRestPass email = {email} getCodeFromConfirmCode = {getCodeFromConfirmCode}/>}/>
         <Route path="/restPassword" element={<RestPassword email = {email} code = {code}/>}/>
-        {/* <Route path="/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/> */}
+        {/* show single units by main route  ( selling - rent - estate_finance )   */}
         <Route path={"/selling/showUnit/:unitId"} element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
         <Route path="/rent/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
         <Route path="/estate_finance/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
+        {/* bookings routes ( preview_bookings - rent_bookings ) */}
+        <Route path="preview_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><PreviewBookings/></React.Suspense></RequireAuth>}/>
+        <Route path="rent_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><RentBookings/></React.Suspense></RequireAuth>}/>
       </Routes>
     </div>
   );

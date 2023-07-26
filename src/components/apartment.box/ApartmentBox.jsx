@@ -59,7 +59,7 @@ const endDateYear = endDate.getFullYear()
         <>
             <div  
             className="single-box">
-                {location.pathname === "/myBookings" &&
+                {location.pathname === "/rent_bookings" &&
                 <h4 className="date-booking-title">{`تم الحجز من يوم ${startDateDay} / ${startDate.getMonth() + 1} / ${startDateYear} إلى يوم ${endDateDay} / ${endDate.getMonth() + 1} / ${endDateYear}`}</h4>}
                 <div className="image-box">
                     {location.pathname !== `/myUnits/${unitId}`?
@@ -74,11 +74,16 @@ const endDateYear = endDate.getFullYear()
 
                 </div>
                 <div className="apartmentBox-text-content">
-                    <h4>{`شقة مساحتها  ${item?.apartment_area} متر`}</h4>
+                    {location.pathname === "/rent_bookings" ?
+                    <h4>{`شقة مفروش للإيجار شارع  ${item?.street}`}</h4>
+                    :<h4>{`شقة مساحتها  ${item?.apartment_area} متر`}</h4>}
+
                     {location.pathname === "/myFavourite" && 
                     <p>{`شقة تحتوي على ${item?.bathrooms} حمام`}</p>}
-                    {/* <p className="rate"><span>{`${item.price} / اليوم`}</span>({item?.raters ? item?.raters : 0} تقييم)</p> */}
-                    <p className="rate"><span>{`${item.price} `}</span></p>
+                    
+                    {location.pathname === "/rent_bookings" ? <p className="rate"><span>{`${item.price} / اليوم`}</span></p>
+                    :<p className="rate"><span>{`${item.price} `}</span></p>}
+                    
                     <p className="location">
                         <FontAwesomeIcon icon={faLocationDot}/>
                         {`${item?.city} - مصر`}
@@ -104,18 +109,19 @@ const endDateYear = endDate.getFullYear()
                     : location.pathname === `/estate_finance` ?
                     <Link 
                     className="main_btn"
-                    to={`${location.pathname}/showUnit/${item?._id}`}
+                    to={`/estate_finance/showUnit/${item?._id}`}
                     >طلب تمويل عقاري</Link>
                     : location.pathname === `/rent` ?
                     <Link 
                     className="main_btn"
-                    to={`${location.pathname}/showUnit/${item?._id}`}
+                    to={`/rent/showUnit/${item?._id}`}
                     >حجز</Link>
-                    :
+                    : location.pathname === `/selling` ?
                     <Link 
                     className="main_btn"
-                    to={`${location.pathname}/showUnit/${item?._id}`}
+                    to={`/selling/showUnit/${item?._id}`}
                     >حجز معاينة</Link>
+                    :""
                 }
                 </div>
                 <ToastContainer
