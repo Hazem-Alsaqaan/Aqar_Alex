@@ -79,7 +79,7 @@ const endDateYear = endDate.getFullYear()
                     :<h4>{`شقة مساحتها  ${item?.apartment_area} متر`}</h4>}
 
                     {location.pathname === "/myFavourite" && 
-                    <p>{`شقة تحتوي على ${item?.bathrooms} حمام`}</p>}
+                    <p>{`تقع في شارع ${item?.street} وتحتوي على ${item?.bathrooms} حمام ، ${item?.rooms} غرفة`}</p>}
                     
                     {location.pathname === "/rent_bookings" ? <p className="rate"><span>{`${item.price} / اليوم`}</span></p>
                     :<p className="rate"><span>{`${item.price} `}</span></p>}
@@ -93,12 +93,6 @@ const endDateYear = endDate.getFullYear()
 
 
                     {
-                    // location.pathname === "/myBookings" ?
-                    // <Link 
-                    //     className="main_btn"
-                    //     onClick={()=>handleRemoveFromMyBookings(bookingItem?._id)}
-                    // >إلغاء الحجز</Link>
-                    // : 
                     location.pathname === "/myUnits" ?
                     <Link 
                     className="main_btn"
@@ -122,7 +116,7 @@ const endDateYear = endDate.getFullYear()
                     to={`/selling/showUnit/${item?._id}`}
                     >حجز معاينة</Link>
                     :""
-                }
+                    }
                 </div>
                 <ToastContainer
                 position="top-center"

@@ -21,6 +21,7 @@ import CustomToastify from "./components/custom_toastify/CustomToastify";
 // import PreviewBookings from "./pages/preview_bookings/PreviewBookings";
 const PreviewBookings = React.lazy(()=>import("./pages/preview_bookings/PreviewBookings"))
 const RentBookings = React.lazy(()=>import("./pages/rent_bookings/RentBookings"))
+const MyFavourite = React.lazy(()=>import("./pages/my.favourite/MyFavourite"))
 
 function App() {
   // spinner loader pages to add fallback
@@ -88,6 +89,8 @@ function App() {
         {/* bookings routes ( preview_bookings - rent_bookings ) */}
         <Route path="preview_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><PreviewBookings/></React.Suspense></RequireAuth>}/>
         <Route path="rent_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><RentBookings/></React.Suspense></RequireAuth>}/>
+        {/* favourites route */}
+        <Route path="/myFavourite" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><MyFavourite/></React.Suspense></RequireAuth>}/>
       </Routes>
     </div>
   );
