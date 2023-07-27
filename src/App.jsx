@@ -19,6 +19,8 @@ const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
 import "./App.css";
 import CustomToastify from "./components/custom_toastify/CustomToastify";
 import Profile from "./pages/profile/Profile";
+import TirmsOfUse from "./pages/tirms.of.use/TirmsOfUse";
+import PrivacyPolicy from "./pages/privacy.policy/PrivacyPolicy";
 // import PreviewBookings from "./pages/preview_bookings/PreviewBookings";
 const PreviewBookings = React.lazy(()=>import("./pages/preview_bookings/PreviewBookings"))
 const RentBookings = React.lazy(()=>import("./pages/rent_bookings/RentBookings"))
@@ -94,6 +96,9 @@ function App() {
         <Route path="/myFavourite" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><MyFavourite/></React.Suspense></RequireAuth>}/>
         {/* profile */}
         <Route path="/profile" element={<RequireAuth><Profile/></RequireAuth>}/>
+        {/* privacy and tirm */}
+        <Route path="/tirms-of-use" element={<RequireAuth><TirmsOfUse/></RequireAuth>}/>
+        <Route path="/privacy-policy" element={<RequireAuth><PrivacyPolicy/></RequireAuth>}/>
       </Routes>
     </div>
   );
