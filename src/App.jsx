@@ -16,17 +16,18 @@ import Rent from "./pages/rent/Rent";
 import { RotatingLines } from "react-loader-spinner";
 import RequireAuth from "./components/require.auth/RequireAuth";
 const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
-import "./App.css";
 import CustomToastify from "./components/custom_toastify/CustomToastify";
 import Profile from "./pages/profile/Profile";
 import TirmsOfUse from "./pages/tirms.of.use/TirmsOfUse";
 import PrivacyPolicy from "./pages/privacy.policy/PrivacyPolicy";
 import ManageAccount from "./pages/manage.account/ManageAccount";
 import ChangePassword from "./pages/change.password/ChangePassword";
-// import PreviewBookings from "./pages/preview_bookings/PreviewBookings";
 const PreviewBookings = React.lazy(()=>import("./pages/preview_bookings/PreviewBookings"))
 const RentBookings = React.lazy(()=>import("./pages/rent_bookings/RentBookings"))
 const MyFavourite = React.lazy(()=>import("./pages/my.favourite/MyFavourite"))
+const MyUnits = React.lazy(()=>import("./pages/my.units/MyUnits"))
+import HouseReservations from "./pages/house.reservations/HouseReservations";
+import "./App.css";
 
 function App() {
   // spinner loader pages to add fallback
@@ -104,6 +105,9 @@ function App() {
         {/* change password and manage account */}
         <Route path="/manageAccount" element={<RequireAuth><ManageAccount/></RequireAuth>}/>
         <Route path="/changePassword" element={<RequireAuth><ChangePassword/></RequireAuth>}/>
+        {/* my units {الشقق المعروضة} */}
+        <Route path="/myUnits" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><MyUnits/></React.Suspense></RequireAuth>}/>
+        <Route path="/myUnits/:unitId" element={<RequireAuth><HouseReservations/></RequireAuth>}/>
       </Routes>
     </div>
   );
