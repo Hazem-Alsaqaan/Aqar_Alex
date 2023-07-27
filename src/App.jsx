@@ -18,6 +18,7 @@ import RequireAuth from "./components/require.auth/RequireAuth";
 const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
 import "./App.css";
 import CustomToastify from "./components/custom_toastify/CustomToastify";
+import Profile from "./pages/profile/Profile";
 // import PreviewBookings from "./pages/preview_bookings/PreviewBookings";
 const PreviewBookings = React.lazy(()=>import("./pages/preview_bookings/PreviewBookings"))
 const RentBookings = React.lazy(()=>import("./pages/rent_bookings/RentBookings"))
@@ -91,6 +92,8 @@ function App() {
         <Route path="rent_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><RentBookings/></React.Suspense></RequireAuth>}/>
         {/* favourites route */}
         <Route path="/myFavourite" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><MyFavourite/></React.Suspense></RequireAuth>}/>
+        {/* profile */}
+        <Route path="/profile" element={<RequireAuth><Profile/></RequireAuth>}/>
       </Routes>
     </div>
   );
