@@ -28,6 +28,7 @@ const MyFavourite = React.lazy(()=>import("./pages/my.favourite/MyFavourite"))
 const MyUnits = React.lazy(()=>import("./pages/my.units/MyUnits"))
 import HouseReservations from "./pages/house.reservations/HouseReservations";
 import "./App.css";
+import { useSelector } from "react-redux";
 
 function App() {
   // spinner loader pages to add fallback
@@ -42,8 +43,8 @@ function App() {
                           </div>
   // ################################################################### //
 
-  const [mood, setMood] = useState("light")
-
+  // const [mood, setMood] = useState("light")
+  const {mood} = useSelector((state)=>state.toggleSlice)
   const [email, setEmail] = useState("")
   const [registerMail, setRegisterMail] = useState("")
   const [code, setCode] = useState("")
@@ -62,7 +63,7 @@ function App() {
     <div className={mood === "dark" ? "App dark_mood" : "App"}>
       <CustomToastify/>
       <Routes>
-        <Route path="/" element={<HomePage setMood = {setMood}/>}/>
+        <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<Login/>}/>
         {/* بيـــــــــــــــــــــــــــــــــــــع */}
         <Route path="/selling" element={<Selling pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "selling"/>}>

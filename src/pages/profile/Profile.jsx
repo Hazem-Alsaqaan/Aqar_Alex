@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import WhiteHeader from "../../components/white.header/WhiteHeader";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faGlobe, faHome, faHotel, faLock, faPowerOff, faThumbsUp, faUser, faUserLock } from "@fortawesome/free-solid-svg-icons";
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { faChevronLeft, faCircleHalfStroke, faGlobe, faHome, faHotel, faLock, faPowerOff, faThumbsUp, faUser, faUserLock } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faCircleDot } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyBooking, getUserProfileData } from "../../redux/actions/unitsActions";
@@ -11,9 +11,12 @@ import { logOut } from "../../redux/reducers/authSlice";
 import { ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import "./Profile.css"
+import { setMood } from "../../redux/reducers/toggleSlice";
 
 const Profile =()=>{
     const dispatch = useDispatch()
+    const {mood} = useSelector((state)=>state.toggleSlice)
+    const [toggleThemes, setToggleThemes] = useState(false)
     const [profileRender, setProfileRender] = useState(false)
     const {token} = useSelector((state)=>state.authSlice)
     const {userProfile} = useSelector((state)=>state.unitsSlice)
@@ -30,6 +33,11 @@ const Profile =()=>{
 
     const handleLogOut =()=>{
         dispatch(logOut())
+    }
+
+    const handleSetThemesMood = (mood)=>{
+        dispatch(setMood(mood))
+        setToggleThemes(false)
     }
     return(
         <>
@@ -52,6 +60,23 @@ const Profile =()=>{
             />
             <WhiteHeader/>
             <section className="profile-body container">
+                {
+                    toggleThemes ?
+                    <div className="config_themes">
+                        <h2>الوضع المظلم</h2>
+                        <section>
+                            <div>
+                                <p onClick={()=>handleSetThemesMood("dark")}>تفعيل</p>
+                                <FontAwesomeIcon onClick={()=>handleSetThemesMood("dark")} icon={faCircleDot} style={mood === "dark" ? {color: "#FF3D00" } : {color: "#ccc"} }/>
+                            </div>
+                            <div>
+                                <p onClick={()=>handleSetThemesMood("light")}>إيقاف</p>
+                                <FontAwesomeIcon onClick={()=>handleSetThemesMood("light")} icon={faCircleDot} style={mood === "light" ? {color: "#FF3D00" } : {color: "#ccc"}}/>
+                            </div>
+                        </section>
+                    </div>
+                    :"" 
+                }
                 <div className="profile-image">
                     <img src={userProfile?.photo ? userProfile?.photo : `https://res.cloudinary.com/dkhu7rt8n/image/upload/v1685201428/vectors/user_profile_g0jjum.png`} alt=""/>
                     <h2>{userProfile.username}</h2>
@@ -99,6 +124,19 @@ const Profile =()=>{
                                 <span>اللغه</span>
                             </div>
                             <p className="left-side">عربي</p>
+                        </li>
+                        <li>
+                            <div className="text-icon"
+                            onClick={()=>setToggleThemes(!toggleThemes)}
+                            >
+                                <FontAwesomeIcon icon={faCircleHalfStroke} />
+                                <span>الوضع المظلم</span>
+                            </div>
+                            <div className="dark_mood" 
+                            onClick={()=>setToggleThemes(!toggleThemes)}>
+                                <span className="left-side">{mood === "dark" ? "تفعيل" : "إيقاف"}</span>
+                                <FontAwesomeIcon className="left-side" icon={faChevronLeft}/>
+                            </div>
                         </li>
                         <li>
                             <div className="text-icon">

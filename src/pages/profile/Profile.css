@@ -3,6 +3,37 @@
     margin-bottom: 100px ;
     background-color: var((--bg));
     color: var(--text);
+    position: relative;
+}
+.profile-body .config_themes{
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg);
+    box-shadow: 0px 0px 16px #777 ;
+    padding: 25px;
+    color: var(--text);
+    border-radius: 12px;
+}
+.profile-body .config_themes h2 {
+    text-align: center;
+    font-size: 33px;
+    font-weight: 700;
+    margin: 25px 0px;
+}
+.profile-body .config_themes section div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 60px;
+}
+
+.profile-body .config_themes section div p,
+.profile-body .config_themes section div svg{
+    font-size: 25px;
+    cursor: pointer;
 }
 .profile-body .profile-image {
     display: flex;
@@ -35,6 +66,12 @@
 }
 .profile-body .profile-nav li .left-side {
     font-size: 38px;
+    margin-left: 7px;
+}
+.profile-body .profile-nav li .dark_mood {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 .profile-body .profile-nav li div.text-icon svg,
 .profile-body .profile-nav li div.text-icon img {
@@ -49,7 +86,11 @@
     color: var(--text);
 }
 /* start media screen */
-
+@media(max-width:771px){
+    .profile-body .config_themes{
+        width: 80%;
+    } 
+}
 @media(max-width: 600px){
     .profile-body .profile-image h2{
         font-size: 35px;
@@ -66,5 +107,36 @@
     .profile-body .profile-nav li div.text-icon a {
         margin-right: 15px;
         font-size: 25px;
+    }
+}
+@media(max-width: 491px){
+    .profile-body .config_themes h2 {
+        font-size: 25px;
+        margin: 22px 0px;
+    }
+    .profile-body .config_themes section div {
+        padding-bottom: 30px;
+    }
+    .profile-body .config_themes section div p,
+    .profile-body .config_themes section div svg{
+        font-size: 20px;
+    }
+
+
+    .profile-body .profile-image h2{
+        font-size: 30px;
+    }
+    .profile-body .profile-nav li .left-side {
+        font-size: 22px;
+    }
+    .profile-body .profile-nav li div.text-icon svg,
+    .profile-body .profile-nav li div.text-icon img {
+        width: 21px;
+        height: 25px;
+    }
+    .profile-body .profile-nav li div.text-icon span,
+    .profile-body .profile-nav li div.text-icon a {
+        margin-right: 10px;
+        font-size: 22px;
     }
 }

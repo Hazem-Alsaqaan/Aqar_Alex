@@ -7,7 +7,7 @@ import estate_finance from "../../assets/estate_finance.svg"
 import "./HomePage.css"
 
 // eslint-disable-next-line react-refresh/only-export-components
-const HomePage = ({setMood}) => {
+const HomePage = () => {
     const navigate = useNavigate()
     const [route, setRoute] = useState("")
     const [selectSell, setSelectSell] = useState(false)
@@ -44,17 +44,6 @@ const HomePage = ({setMood}) => {
         </Helmet>
             <section className="home_page">
                 <div className="container">
-                <div>
-                    <button 
-                    className="btn btn-dark"
-                    onClick={()=>setMood("dark")}
-                    >dark
-                    </button>
-                    <button 
-                    className="btn btn-light"
-                    onClick={()=>setMood("light")}
-                    >light</button>
-                </div>
                     <div className="choosing_boxes">
                         <div className={selectSell ? "box selected" : "box"} name="selling" onClick={(e)=>handleChooseSell(e)}>
                             <img src={sell_img} alt=""/>
