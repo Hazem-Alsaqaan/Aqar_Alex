@@ -57,7 +57,7 @@ const handleGoogleLogin = useGoogleLogin ({
             })
             getEmailFromRegister(email)
             dispatch(registerFulfilled(res.data))
-            navigate("/verifyCode")
+            navigate("/login")
         }catch(err){
             dispatch(registerRejected())
             if(err.message === "Network Error"){
@@ -75,9 +75,9 @@ const handleGoogleLogin = useGoogleLogin ({
     return(
         <>
         <Helmet>
-            <title>Aqar_Alex | إنشاء حساب </title>
-            <meta name="keywords" content="عقار الاسكندرية للعقارات aqar alex - بيع وشراء العقارات شقق فلل شاليهات في مصر"/>
-            <meta name="description" content="عقار الاسكندرية aqar alex منصة تداول العقارات في مصر، بيع وشراء العقارات، شقق، فلل، محلات، شاليهات، مكاتب، اراضي، بيوت ومنازل."/>
+            <title>Egypt House | إنشاء حساب </title>
+            <meta name="keywords" content=" للعقارات Egypt House - بيع وشراء وايجار وتمويل عقاري العقارات شقق فلل شاليهات في مصر"/>
+            <meta name="description" content=" Egypt House منصة تداول العقارات في مصر، بيع وشراء وايجار وتمويل عقاري العقارات، شقق، فلل، محلات، شاليهات، مكاتب، اراضي، بيوت ومنازل."/>
         </Helmet>
             <ToastContainer
                         position="top-center"

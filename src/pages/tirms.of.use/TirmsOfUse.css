@@ -11,6 +11,7 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 100px;
+    color: var(--main);
 }
 .tirms-of-use  div h2{
     font-size: 44px;
@@ -28,6 +29,24 @@
 .tirms-of-use div div.tirms-text  p {
     margin-left: 15px;
     height: 100%;
+}
+.tirms-of-use .check_tirms {
+    font-size: 30px;
+    font-weight: 700px;
+    color: var(--main);
+    cursor: pointer;
+}
+.tirms-of-use .check_tirms svg {
+    margin-left: 20px;
+}
+.tirms-of-use .btn_container {
+    display: flex;
+    justify-content: center;
+}
+.tirms-of-use .btn_container .main_btn {
+    min-width: 50%;
+    margin-top: 80px;
+
 }
 /* start media screen */
 @media(max-width: 770px){
@@ -56,5 +75,8 @@
         line-height: 30px;
         margin-bottom: 20px;
         word-spacing: 2px;
+    }
+    .tirms-of-use .check_tirms {
+        font-size: 16px;
     }
 }
