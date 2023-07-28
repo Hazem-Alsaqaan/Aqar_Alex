@@ -27,6 +27,7 @@ const RentBookings = React.lazy(()=>import("./pages/rent_bookings/RentBookings")
 const MyFavourite = React.lazy(()=>import("./pages/my.favourite/MyFavourite"))
 const MyUnits = React.lazy(()=>import("./pages/my.units/MyUnits"))
 import HouseReservations from "./pages/house.reservations/HouseReservations";
+const ShowYourApartment = React.lazy(()=>import("./pages/show.your.apartment/ShowYourApartment"))
 import "./App.css";
 import { useSelector } from "react-redux";
 
@@ -109,6 +110,8 @@ function App() {
         {/* my units {الشقق المعروضة} */}
         <Route path="/myUnits" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><MyUnits/></React.Suspense></RequireAuth>}/>
         <Route path="/myUnits/:unitId" element={<RequireAuth><HouseReservations/></RequireAuth>}/>
+        {/* add new apartment */}
+        <Route path="/showYourApartment" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowYourApartment/></React.Suspense></RequireAuth>}/> <Route path="/showYourApartment" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowYourApartment/></React.Suspense></RequireAuth>}/>
       </Routes>
     </div>
   );
