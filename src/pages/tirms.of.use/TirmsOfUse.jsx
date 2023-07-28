@@ -1,13 +1,20 @@
 import Footer from "../../components/footer/Footer";
-import WhiteHeader from "../../components/white.header/WhiteHeader";
+// import WhiteHeader from "../../components/white.header/WhiteHeader";
 import { Helmet } from "react-helmet-async";
 import "./TirmsOfUse.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TirmsOfUse =()=>{
     const [acceptingTirms, setAcceptingTirms] = useState(false)
+    const navigate = useNavigate()
+    const handleAcceptingTirmsNavigate =()=>{
+            if(acceptingTirms){
+                navigate("/")
+            }
+    }
     return(
         <>
         <Helmet>
@@ -15,7 +22,7 @@ const TirmsOfUse =()=>{
             <meta name="keywords" content=" للعقارات Egypt House - بيع وشراء وايجار وتمويل عقاري العقارات شقق فلل شاليهات في مصر"/>
             <meta name="description" content=" Egypt House منصة تداول العقارات في مصر، بيع وشراء وايجار وتمويل عقاري العقارات، شقق، فلل، محلات، شاليهات، مكاتب، اراضي، بيوت ومنازل."/>
         </Helmet>
-            <WhiteHeader/>
+            {/* <WhiteHeader/> */}
             <section className="tirms-of-use  container">
                 <h1>الشروط الخاصه بالتسجيل</h1>
                 <div>
@@ -34,7 +41,7 @@ const TirmsOfUse =()=>{
                     <span onClick={()=>setAcceptingTirms(!acceptingTirms)}>أوافق على الشروط والأحكام</span>
                 </div>
                 <div className="btn_container">
-                    <button className="main_btn">متابعة</button>
+                    <button onClick={handleAcceptingTirmsNavigate} className="main_btn">متابعة</button>
                 </div>
             </section>
             <Footer/>

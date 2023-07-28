@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import "./MostBookedApartments.css"
 import ApartmentBox from "../apartment.box/ApartmentBox";
@@ -6,7 +6,8 @@ import { getMostBookings } from "../../redux/actions/unitsActions";
 import {RotatingLines} from "react-loader-spinner"
 
 
-const MostBookedApartments = ()=>{
+// eslint-disable-next-line react-refresh/only-export-components
+const MostBookedApartments = ({homeContentTitle})=>{
     const dispatch = useDispatch()
     const [mostRender, setMostRender] = useState(false)
     const {mostBookings} = useSelector((state)=>state.unitsSlice)
@@ -23,7 +24,7 @@ const MostBookedApartments = ()=>{
         <>
             <section className="most-booked">
                 <div className="container">
-                    <h1>أحدث الشقق للبيع</h1>
+                    <h1>{homeContentTitle}</h1>
                     { mostBookingsLoading ? 
                             <RotatingLines
                             strokeColor="#FF3D00"
@@ -45,4 +46,5 @@ const MostBookedApartments = ()=>{
         </>
     )
 }
-export default MostBookedApartments
+// eslint-disable-next-line react-refresh/only-export-components
+export default memo(MostBookedApartments)

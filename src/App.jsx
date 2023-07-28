@@ -68,21 +68,21 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         {/* بيـــــــــــــــــــــــــــــــــــــع */}
         <Route path="/selling" element={<Selling pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "selling"/>}>
-          <Route index element={<HomeContent/>}/>
+          <Route index element={<HomeContent homeContentTitle = "أحدث الشقق للبيع"/>}/>
           <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber} />}/>
-          <Route path="/selling" element={<HomeContent/>}/>
+          <Route path="/selling" element={<HomeContent />}/>
         </Route>
         {/* إيجــــــــــــــــــــــــــــــــــــار */}
         <Route path="/rent" element={<Rent pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "rent"/>}>
-          <Route index element={<HomeContent/>}/>
+          <Route index element={<HomeContent homeContentTitle = "أكثر الشقق إيجارا لهذا الشهر"/>}/>
             <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>} />
-            <Route path="/rent" element={<HomeContent/>}/>
+            <Route path="/rent" element={<HomeContent />}/>
         </Route>
         {/* تمويــــــــــــــــــل عقــــــــــــــــأري */}
         <Route path="/estate_finance" element={<EstateFinance pageNumber = {pageNumber} setPageNumber = {setPageNumber} pageRoute = "estate_finance"/>}>
-          <Route index element={<HomeContent/>}/>
+          <Route index element={<HomeContent homeContentTitle = "أحدث الشقق المضافه"/>}/>
           <Route path="search" element={<SearchResult pageNumber = {pageNumber} setPageNumber = {setPageNumber}/>} />
-          <Route path="/estate_finance" element={<HomeContent/>}/>
+          <Route path="/estate_finance" element={<HomeContent />}/>
         </Route>
         {/* Authentications */}
         <Route path="/register" element={<Register getEmailFromRegister ={getEmailFromRegister}/>}/>

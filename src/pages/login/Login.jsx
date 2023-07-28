@@ -32,7 +32,7 @@ const handleGoogleLogin = useGoogleLogin ({
                 window.sessionStorage.setItem("token", JSON.stringify(res.data.token))
                 dispatch(loginFulfilled(res.data))
                 // navigate(redirectPath, {replace: true})
-                navigate("/")
+                navigate("/tirms-of-use")
             }catch(err){
                 // console.log(err)
                 if(err.message === "Network Error"){
@@ -57,7 +57,7 @@ const handleLogin = async(e)=>{
     window.sessionStorage.setItem("token", JSON.stringify(res.data.token))
     dispatch(loginFulfilled(res.data))
     // navigate(redirectPath, {replace: true})
-    navigate("/")
+    navigate("/tirms-of-use")
     }catch(err){
         dispatch(loginRejected(err.message || err.response.data))
         if(err.message === "Network Error"){
