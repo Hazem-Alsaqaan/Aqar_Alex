@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setToggleToast } from "../../redux/reducers/toggleSlice";
 import { useLocation } from "react-router-dom";
 import Query from "../query/Query";
+import InstallmentCalculator from "../installment_calculator/InstallmentCalculator";
 // import { Link, useParams } from "react-router-dom";
 
 
@@ -18,7 +19,7 @@ const SpecificationsConditions = ({oneUnit})=>{
     const dispatch = useDispatch()
     const [dateSelected, setDateSelected] = useState(null)
     const [calendarVisible, setCalendarVisible] = useState(false)
-
+    const [showCalculator, setShowCalculator] = useState(false)
     const handleSelectedDate = (date)=>{
         setDateSelected(date)
     }
@@ -35,6 +36,34 @@ const SpecificationsConditions = ({oneUnit})=>{
             <div>
                 <h1>{`شقة مساحتها ${oneUnit.apartment_area} متر`}</h1>
                 <p>{`${oneUnit.price}`}</p>
+
+{/* ///////////////////////////////////////////////////////////////////////////////////////// */}
+                <div className="specifications-conditions">
+                    <section className="specifications">
+                        <h2 className="title">المواصفات</h2>
+                        <div className="specifications-data">
+                            <div>
+                                <FontAwesomeIcon icon={faLocationDot}/>
+                                <span>{`${oneUnit.city} - مصر`}</span>
+                            </div>
+                            <div>
+                                <FontAwesomeIcon icon={faWarehouse}/>
+                                <span>{`مساحة الشقة ${oneUnit.apartment_area}`}</span>
+                            </div>
+                            <div>
+                                <FontAwesomeIcon icon={faPeopleRoof}/>
+                                <span>مناسب للعائلات والعزاب</span>
+                            </div>
+                        </div>
+                        <section className="description">
+                            <h3>الوصف :</h3>
+                            <p>{oneUnit.description}</p>
+                        </section>
+                    </section>
+                </div>
+{/* ///////////////////////////////////////////////////////////////////////////////////////// */}
+
+
             </div>
             {location.pathname === `/selling/showUnit/${oneUnit._id}` ? 
             <div>
@@ -64,13 +93,16 @@ const SpecificationsConditions = ({oneUnit})=>{
             : location.pathname === `/rent/showUnit/${oneUnit._id}` ? 
             <button className="main_btn">احجز الأن</button>
             : location.pathname === `/estate_finance/showUnit/${oneUnit._id}` ? 
-            <button className="main_btn">حاسبه الأقساط</button>
+            <div className="install_calculator_container">
+                <button onClick={()=>setShowCalculator(!showCalculator)} className="main_btn">حاسبه الأقساط</button>
+                {showCalculator ? <InstallmentCalculator/> :""}
+            </div>
             :""}
             
         </div>
 
 
-        <div className="specifications-conditions">
+        {/* <div className="specifications-conditions">
             <section className="specifications">
                 <h2 className="title">المواصفات</h2>
                 <div className="specifications-data">
@@ -92,7 +124,7 @@ const SpecificationsConditions = ({oneUnit})=>{
                     <p>{oneUnit.description}</p>
                 </section>
             </section>
-        </div>
+        </div> */}
         </>
     )
 }
