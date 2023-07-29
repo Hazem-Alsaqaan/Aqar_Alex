@@ -5,7 +5,8 @@ const toggleSlice = createSlice({
     name: "toggle",
     initialState: {
         toggleToast: false,
-        mood: "light"
+        mood: "light",
+        showPaymentMonthly: false
     },
     reducers: {
         setToggleToast: (state, action)=>{
@@ -13,9 +14,12 @@ const toggleSlice = createSlice({
         },
         setMood: (state, action)=>{
             state.mood = action.payload
+        },
+        setShowPaymentMonthly: (state, action)=>{
+            state.showPaymentMonthly = action.payload
         }
     }
 })
 
-export const {setToggleToast, setMood} = toggleSlice.actions
+export const {setToggleToast, setMood, setShowPaymentMonthly} = toggleSlice.actions
 export default toggleSlice.reducer
