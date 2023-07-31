@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 import UnitSwiperImages from "../../components/unit.swiper.images/UnitSwiperImages";
 import SpecificationsConditions from "../../components/specifications/SpecificationsConditions";
 import PaymentMonthly from "../../components/payment_monthly/PaymentMonthly";
+import CustomToastify from "../../components/custom_toastify/CustomToastify";
 
 const ShowUnit = ()=>{
     const [render, setRender] = useState(false)
@@ -26,6 +27,10 @@ const ShowUnit = ()=>{
     },[dispatch, render, token, unitId])
 
     const {showPaymentMonthly} = useSelector((state)=> state.toggleSlice)
+    const {reserveSellingSuccess} = useSelector((state)=> state.toggleSlice)
+    const {reserveRentSuccess} = useSelector((state)=> state.toggleSlice)
+    const {applicationFinanceSuccess} = useSelector((state)=> state.toggleSlice)
+
     return(
         <>
         <Helmet>
@@ -34,7 +39,13 @@ const ShowUnit = ()=>{
             <meta name="description" content=" Egypt House منصة تداول العقارات في مصر، بيع وشراء وايجار وتمويل عقاري العقارات، شقق، فلل، محلات، شاليهات، مكاتب، اراضي، بيوت ومنازل."/>
         </Helmet>
             <div className="show-unit">
-                {showPaymentMonthly?<PaymentMonthly/>:""}
+                {showPaymentMonthly?<PaymentMonthly />:""}
+                {
+                reserveSellingSuccess ? <CustomToastify message = "تم حجز الطلب"/> 
+                : reserveRentSuccess ? <CustomToastify message = "تم الحجز"/>
+                : applicationFinanceSuccess ? <CustomToastify message = "تم تقديم طلب تمويلك العقاري بنجاح"/>
+                :""
+                }
                 <WhiteHeader />
                 <div className="container show-unit-body">
                     <UnitSwiperImages/>

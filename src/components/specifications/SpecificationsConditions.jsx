@@ -3,11 +3,12 @@ import "./SpecificationsConditions.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPeopleRoof, faWarehouse } from "@fortawesome/free-solid-svg-icons";
 import DatePicker from "react-datepicker";
-import { useDispatch } from "react-redux";
-import { setToggleToast } from "../../redux/reducers/toggleSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setReserveRentSuccess, setReserveSellingSuccess, setShowCalculator } from "../../redux/reducers/toggleSlice";
 import { useLocation } from "react-router-dom";
 import Query from "../query/Query";
 import InstallmentCalculator from "../installment_calculator/InstallmentCalculator";
+import ApplicationFinance from "../application_finance/ApplicationFinance";
 // import { Link, useParams } from "react-router-dom";
 
 
@@ -19,16 +20,19 @@ const SpecificationsConditions = ({oneUnit})=>{
     const dispatch = useDispatch()
     const [dateSelected, setDateSelected] = useState(null)
     const [calendarVisible, setCalendarVisible] = useState(false)
-    const [showCalculator, setShowCalculator] = useState(false)
+    const {showCalculator} = useSelector((state)=>state.toggleSlice)
+    const {showApplicationFinance} = useSelector((state)=>state.toggleSlice)
     const handleSelectedDate = (date)=>{
         setDateSelected(date)
     }
     const submitCalendar = ()=>{
         if(dateSelected){
             setCalendarVisible(false)
-            console.log(dateSelected)
-            dispatch(setToggleToast(true))
+            dispatch(setReserveSellingSuccess(true))
         }
+    }
+    const handleReserveRent = ()=>{
+        dispatch(setReserveRentSuccess(true))
     }
     return(
         <>
@@ -55,10 +59,11 @@ const SpecificationsConditions = ({oneUnit})=>{
                                 <span>مناسب للعائلات والعزاب</span>
                             </div>
                         </div>
+                        {showCalculator === false && showApplicationFinance === false ?
                         <section className="description">
                             <h3>الوصف :</h3>
                             <p>{oneUnit.description}</p>
-                        </section>
+                        </section>:""}
                     </section>
                 </div>
 {/* ///////////////////////////////////////////////////////////////////////////////////////// */}
@@ -91,40 +96,20 @@ const SpecificationsConditions = ({oneUnit})=>{
             <Query/>
             </div> 
             : location.pathname === `/rent/showUnit/${oneUnit._id}` ? 
-            <button className="main_btn">احجز الأن</button>
+            <button
+            onClick={()=>handleReserveRent()}
+            className="main_btn"
+            >احجز الأن</button>
             : location.pathname === `/estate_finance/showUnit/${oneUnit._id}` ? 
             <div className="install_calculator_container">
-                <button onClick={()=>setShowCalculator(!showCalculator)} className="main_btn">حاسبه الأقساط</button>
+                {showApplicationFinance ? <ApplicationFinance/> 
+                :<button onClick={()=>dispatch(setShowCalculator(!showCalculator))} className="main_btn">حاسبه الأقساط</button>
+                }
                 {showCalculator ? <InstallmentCalculator/> :""}
             </div>
             :""}
             
         </div>
-
-
-        {/* <div className="specifications-conditions">
-            <section className="specifications">
-                <h2 className="title">المواصفات</h2>
-                <div className="specifications-data">
-                    <div>
-                        <FontAwesomeIcon icon={faLocationDot}/>
-                        <span>{`${oneUnit.city} - مصر`}</span>
-                    </div>
-                    <div>
-                        <FontAwesomeIcon icon={faWarehouse}/>
-                        <span>{`مساحة الشقة ${oneUnit.apartment_area}`}</span>
-                    </div>
-                    <div>
-                        <FontAwesomeIcon icon={faPeopleRoof}/>
-                        <span>مناسب للعائلات والعزاب</span>
-                    </div>
-                </div>
-                <section className="description">
-                    <h3>الوصف :</h3>
-                    <p>{oneUnit.description}</p>
-                </section>
-            </section>
-        </div> */}
         </>
     )
 }

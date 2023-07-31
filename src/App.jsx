@@ -16,7 +16,6 @@ import Rent from "./pages/rent/Rent";
 import { RotatingLines } from "react-loader-spinner";
 import RequireAuth from "./components/require.auth/RequireAuth";
 const ShowUnit = React.lazy(()=>import("./pages/show.unit/ShowUnit"))
-import CustomToastify from "./components/custom_toastify/CustomToastify";
 import Profile from "./pages/profile/Profile";
 import TirmsOfUse from "./pages/tirms.of.use/TirmsOfUse";
 import PrivacyPolicy from "./pages/privacy.policy/PrivacyPolicy";
@@ -28,6 +27,7 @@ const MyFavourite = React.lazy(()=>import("./pages/my.favourite/MyFavourite"))
 const MyUnits = React.lazy(()=>import("./pages/my.units/MyUnits"))
 import HouseReservations from "./pages/house.reservations/HouseReservations";
 const ShowYourApartment = React.lazy(()=>import("./pages/show.your.apartment/ShowYourApartment"))
+// const ApplicationFinance = React.lazy(()=>import("./components/application_finance/ApplicationFinance"))
 import "./App.css";
 import { useSelector } from "react-redux";
 
@@ -62,7 +62,6 @@ function App() {
   }
   return (
     <div className={mood === "dark" ? "App dark_mood" : "App"}>
-      <CustomToastify/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<Login/>}/>
@@ -94,6 +93,7 @@ function App() {
         <Route path={"/selling/showUnit/:unitId"} element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
         <Route path="/rent/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
         <Route path="/estate_finance/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
+        {/* <Route path="/estate_finance/showUnit/:unitId/application_finance" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ApplicationFinance/></React.Suspense></RequireAuth>}/> */}
         {/* bookings routes ( preview_bookings - rent_bookings ) */}
         <Route path="preview_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><PreviewBookings/></React.Suspense></RequireAuth>}/>
         <Route path="rent_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><RentBookings/></React.Suspense></RequireAuth>}/>
