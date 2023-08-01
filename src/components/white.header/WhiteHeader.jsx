@@ -10,6 +10,7 @@ import HomeIcon from "../../assets/home_icon.svg"
 import "./WhiteHeader.css"
 
 const WhiteHeader = ()=>{
+    const [chooseMainPage, setChooseMainPage] = useState(false)
     const [chooseBooking, setChooseBooking] = useState(false)
     const {user} = useSelector((state)=> state.authSlice)
     const {token} = useSelector((state)=> state.authSlice)
@@ -25,15 +26,55 @@ const WhiteHeader = ()=>{
                 <div className="container">
                     <nav>
                         <ul>
-                            <li>
+                        <li>
+                                <span
+                                className="main_header_routes_nav"
+                                onClick={()=>{
+                                    setChooseMainPage(!chooseMainPage)  
+                                    setChooseBooking(false)
+                                    
+                                }}
+                                >
+                                الرئيسية
+                                <FontAwesomeIcon icon={faAngleDown}/>
+                                </span>
+                                {
+                                    chooseMainPage ? 
+                                    <ul className="choose_booking_routes">
+                                        <li onClick={()=>setChooseMainPage(false)}>
+                                            <NavLink to="/selling">
+                                            <img src={HomeIcon} alt="" />
+                                            بيع
+                                            </NavLink>
+                                        </li>
+                                        <li onClick={()=>setChooseMainPage(false)}>
+                                            <NavLink to="/rent">
+                                            <img src={HomeIcon} alt="" />
+                                            إيجار
+                                            </NavLink>
+                                        </li>
+                                        <li onClick={()=>setChooseMainPage(false)}>
+                                            <NavLink to="/estate_finance">
+                                            <img src={HomeIcon} alt="" />
+                                            تمويل عقاري
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                    :""
+                                }
+                            </li>
+                            {/* <li>
                                 <NavLink to="/" end 
                                 className="main_header_routes_nav"
                                 >الرئيسية</NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <span
                                 className="main_header_routes_nav"
-                                onClick={()=>setChooseBooking(!chooseBooking)}
+                                onClick={()=>{
+                                    setChooseBooking(!chooseBooking) 
+                                    setChooseMainPage(false)
+                                }}
                                 >
                                 حجوزاتي
                                 <FontAwesomeIcon icon={faAngleDown}/>

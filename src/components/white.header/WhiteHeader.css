@@ -50,8 +50,8 @@
 .white-header .container nav ul li ul.choose_booking_routes li {
     padding: 7px;
 }
-.white-header .container nav ul li ul.choose_booking_routes li:first-child {
-    border-bottom: 1px solid var(--medium);
+.white-header .container nav ul li ul.choose_booking_routes li:not(:first-child) {
+    border-top: 1px solid var(--tranform_gray);
 }
 .white-header .container nav ul li ul.choose_booking_routes li a{
     font-size: 20px;

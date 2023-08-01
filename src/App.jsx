@@ -27,7 +27,6 @@ const MyFavourite = React.lazy(()=>import("./pages/my.favourite/MyFavourite"))
 const MyUnits = React.lazy(()=>import("./pages/my.units/MyUnits"))
 import HouseReservations from "./pages/house.reservations/HouseReservations";
 const ShowYourApartment = React.lazy(()=>import("./pages/show.your.apartment/ShowYourApartment"))
-// const ApplicationFinance = React.lazy(()=>import("./components/application_finance/ApplicationFinance"))
 import "./App.css";
 import { useSelector } from "react-redux";
 
@@ -93,7 +92,6 @@ function App() {
         <Route path={"/selling/showUnit/:unitId"} element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
         <Route path="/rent/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
         <Route path="/estate_finance/showUnit/:unitId" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ShowUnit/></React.Suspense></RequireAuth>}/>
-        {/* <Route path="/estate_finance/showUnit/:unitId/application_finance" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><ApplicationFinance/></React.Suspense></RequireAuth>}/> */}
         {/* bookings routes ( preview_bookings - rent_bookings ) */}
         <Route path="preview_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><PreviewBookings/></React.Suspense></RequireAuth>}/>
         <Route path="rent_bookings" element={<RequireAuth><React.Suspense fallback={mainPagesLoader}><RentBookings/></React.Suspense></RequireAuth>}/>

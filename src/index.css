@@ -16,6 +16,7 @@ html{
   --light: #fff;
   --medium: #F3F3F3;
   --second_medium: #d9d9d9;
+  --tranform_gray: #F3F3F3;
   --toastify-color-success: #FF3D00;
   --toastify-color-warning: #f1c40f;
   --toastify-color-error: #FF3D00;
@@ -24,10 +25,12 @@ html{
   --bg: #333;
   --text: #fff;
   --second_bg: #000;
+  --tranform_gray: #444;
 }
 body{
   margin: 0px;
-  font-family: 'Almarai', sans-serif;
+  /* font-family: 'Almarai', sans-serif; */
+  font-family: 'Rubik', sans-serif;
   direction: rtl;
 }
 ul{

@@ -9,13 +9,10 @@ import { useLocation } from "react-router-dom";
 import Query from "../query/Query";
 import InstallmentCalculator from "../installment_calculator/InstallmentCalculator";
 import ApplicationFinance from "../application_finance/ApplicationFinance";
-// import { Link, useParams } from "react-router-dom";
 
 
 // eslint-disable-next-line react-refresh/only-export-components
 const SpecificationsConditions = ({oneUnit})=>{
-    // const {unitId} = useParams()
-    // const [showDateList, setShowDateList] = useState(false)
     const location  = useLocation()
     const dispatch = useDispatch()
     const [dateSelected, setDateSelected] = useState(null)
@@ -67,7 +64,6 @@ const SpecificationsConditions = ({oneUnit})=>{
                     </section>
                 </div>
 {/* ///////////////////////////////////////////////////////////////////////////////////////// */}
-
 
             </div>
             {location.pathname === `/selling/showUnit/${oneUnit._id}` ? 
