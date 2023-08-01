@@ -92,10 +92,12 @@ const SpecificationsConditions = ({oneUnit})=>{
             <Query/>
             </div> 
             : location.pathname === `/rent/showUnit/${oneUnit._id}` ? 
-            <button
-            onClick={()=>handleReserveRent()}
-            className="main_btn"
-            >احجز الأن</button>
+            <div className="rent_button">
+                <button
+                onClick={()=>handleReserveRent()}
+                className="main_btn"
+                >احجز الأن</button>
+            </div>
             : location.pathname === `/estate_finance/showUnit/${oneUnit._id}` ? 
             <div className="install_calculator_container">
                 {showApplicationFinance ? <ApplicationFinance/> 
